@@ -1,0 +1,12 @@
+{
+  "name": "nochmals_php_to_js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/shufschmid/nochmals_php_to_js.git",
+  "author": "shufschmid <shufschmid@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "node": "^15.4.0",
+    "node-fetch": "^2.6.1"
+  }
+}
