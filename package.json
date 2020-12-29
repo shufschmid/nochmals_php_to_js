@@ -6,7 +6,6 @@
   "author": "shufschmid <shufschmid@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "node": "^15.4.0",
     "node-fetch": "^2.6.1"
   }
 }
