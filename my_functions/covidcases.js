@@ -2,12 +2,13 @@ const fetch = require('node-fetch')
 
 const API_ENDPOINT = "https://data.bs.ch/api/records/1.0/search/?dataset=100077&q=BS+or+BL&rows=100&sort=update";
 
+
+
+exports.handler = async (event, context) => {
 let ausgabe = ""
 const allBS = []
 const allBL = []
 const infogramSchema = [[]] // Schema-Beschreibung https://infogram.com/api/examples/live.json
-
-exports.handler = async (event, context) => {
   return fetch(API_ENDPOINT, { headers: { "Accept": "application/json" } })
     .then(response => response.json())
     .then(function (data) {
