@@ -5,6 +5,7 @@ const API_ENDPOINT = "https://data.bs.ch/api/records/1.0/search/?dataset=100077&
 let ausgabe = ""
 const allBS = []
 const allBL = []
+const infogramSchema = [[]] // Schema-Beschreibung https://infogram.com/api/examples/live.json
 
 exports.handler = async (event, context) => {
   return fetch(API_ENDPOINT, { headers: { "Accept": "application/json" } })
@@ -31,7 +32,15 @@ exports.handler = async (event, context) => {
       allBL.forEach((e, index) => {
         newCasesCumBL.push(index > 0 ? e - allBL[index - 1] > 0 ? e - allBL[index - 1] : 0 : 0)
       })
-      ausgabe = JSON.stringify(newCasesCumBL)
+      infogramSchema[0].push([
+        "Corona Infektionen",
+        "Basel-Stadt",
+        "Baselland",
+    ])
+    
+    infogramSchema[0].push(newCasesCumBS)
+    infogramSchema[0].push(newCasesCumBL)
+    ausgabe = JSON.stringify(infogramSchema)
 
     })
     .then(data => ({
